@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+var dirName = process.argv[2]
+if(dirName === undefined){
+        console.log("参数不存在")
+        process.exit(-1)
+}
+var fs = require('fs')
+fs.mkdirSync("./" + dirName)
+var nowDir = "./" + dirName + "/"
+fs.mkdirSync(nowDir + 'css')
+fs.mkdirSync(nowDir + 'js')
+fs.writeFileSync(nowDir + "index.html", "<!DOCTYPE>\n<title>Hello</title>\n<h1>Hi</h1>")
+fs.writeFileSync(nowDir + "css/style.css", "h1{color: red;}")
+fs.writeFileSync(nowDir + "js/main.js", 'var string = "Hello World"\nalert(string)')
+process.exit(0)
